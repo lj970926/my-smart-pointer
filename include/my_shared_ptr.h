@@ -19,4 +19,9 @@ MySharedPtr<T>::MySharedPtr(const MySharedPtr& other) {
     raw_ptr_ = other->raw_ptr_;
     ref_cnt_ = ++other->ref_cnt_;
 }
+
+template<typename T>
+T* MySharedPtr<T>::operator->() {
+    return raw_ptr_;
+}
 }
